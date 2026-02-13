@@ -22,7 +22,7 @@ fun calculateDiscount(price: Int): Int =
         (price * 10) / 100
     }
 
-fun printReceipt(title: String, finalPrice: Int) {
+fun printReceipt(title: String, finalPrice: Int, note: String?) {
     println("---STRUK PEMBELIAN---")
     println("Judul Game : $title")
     println("Harga Bayar: Rp $finalPrice")
