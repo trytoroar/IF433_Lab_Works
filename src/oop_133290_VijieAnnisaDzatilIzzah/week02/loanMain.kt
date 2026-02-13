@@ -1,5 +1,7 @@
 package oop_133290_VijieAnnisaDzatilIzzah.week02
 
+import java.util.Scanner
+
 fun main() {
 
     val scanner = Scanner(System.`in`)
