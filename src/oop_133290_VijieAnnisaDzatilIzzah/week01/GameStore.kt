@@ -4,12 +4,14 @@ fun main() {
 
     val gameTitle: String = "Elden Ring"
     val price: Int = 750_000
+    val userNote: String? = null
     val discount = calculateDiscount(price)
     val finalPrice = price - discount
 
     printReceipt(
         title = gameTitle,
-        finalPrice = finalPrice
+        finalPrice = finalPrice,
+        note = userNote
     )
 }
 
@@ -24,4 +26,5 @@ fun printReceipt(title: String, finalPrice: Int) {
     println("---STRUK PEMBELIAN---")
     println("Judul Game : $title")
     println("Harga Bayar: Rp $finalPrice")
+    println("Catatan : ${note ?: "Tidak ada catatan"}")
 }
