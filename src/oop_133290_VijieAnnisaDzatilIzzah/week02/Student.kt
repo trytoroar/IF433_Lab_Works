@@ -1,21 +1,20 @@
-package oop_133508_ArdifaRizkySaputra.week02
+package oop_133290_VijieAnnisaDzatilIzzah.week02
 
-class Student (
+class Student(
     val name: String,
     val nim: String,
-    var gpa: Double = 0.0,
-    var major: String
+    var major: String,
+    var gpa: Double = 0.0   // <- parameter paling akhir + default value
 ) {
 
-    // Secondary Constructor (jalur umum tanpa jurusan)
+    // Secondary Constructor (tidak perlu diubah)
     constructor(name: String, nim: String)
-            : this(name, nim, 0.0, "Non-Matriculated") {
+            : this(name, nim, "Non-Matriculated") {
         println("LOG: Menggunakan constructor jalur umum (Tanpa Jurusan).")
     }
 
-    // Init block
     init {
-        if (nim.length != 6) {
+        if (nim.length != 5) {
             println("WARNING: Objek tercipta dengan NIM ($nim) yang tidak valid!")
             println("Data mahasiswa $name mungkin akan bermasalah di sistem.")
         } else {
