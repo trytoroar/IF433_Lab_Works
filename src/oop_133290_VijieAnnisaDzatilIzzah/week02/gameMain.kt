@@ -1,34 +1,59 @@
 package oop_133290_VijieAnnisaDzatilIzzah.week02
 
+import java.util.Scanner
+
 fun main() {
 
-    val hero1 = Hero("Arthur", 25)
-    val hero2 = Hero("Lancelot", 20)
+    val scanner = Scanner(System.`in`)
 
-    println("=== PERTARUNGAN DIMULAI ===")
+    println("---GAME SEDERHANA---")
 
-    var turn = 1
+    // INPUT HERO
+    print("Masukkan Nama Hero: ")
+    val heroName = scanner.nextLine()
 
-    while (hero1.isAlive() && hero2.isAlive()) {
+    print("Masukkan Base Damage Hero: ")
+    val damage = scanner.nextInt()
 
-        println("\n-- Turn $turn --")
+    val hero = Hero(heroName, damage)
 
-        hero1.attack(hero2.name)
-        hero2.takeDamage(hero1.baseDamage)
+    var enemyHp = 100
 
-        if (!hero2.isAlive()) break
+    while (hero.isAlive() && enemyHp > 0) {
 
-        hero2.attack(hero1.name)
-        hero1.takeDamage(hero2.baseDamage)
+        println("\n1. Serang")
+        println("2. Kabur")
+        print("Pilih aksi: ")
+        val choice = scanner.nextInt()
 
-        turn++
+        if (choice == 1) {
+
+            enemyHp -= hero.baseDamage
+            if (enemyHp < 0) enemyHp = 0
+
+            println("Sisa HP Musuh: $enemyHp")
+
+            if (enemyHp > 0) {
+                val enemyDamage = (10..20).random()
+                println("Musuh menyerang balik dengan $enemyDamage damage!")
+                hero.takeDamage(enemyDamage)
+            }
+
+        } else if (choice == 2) {
+            println("${hero.name} kabur dari pertarungan!")
+            break
+        }
     }
 
-    println("\n=== PERTARUNGAN SELESAI ===")
+    println("\n=== HASIL PERTARUNGAN ===")
 
-    if (hero1.isAlive()) {
-        println("${hero1.name} MENANG!")
+    if (!hero.isAlive()) {
+        println("Hero kalah!")
+    } else if (enemyHp == 0) {
+        println("Hero menang!")
     } else {
-        println("${hero2.name} MENANG!")
+        println("Pertarungan selesai tanpa pemenang.")
     }
+
+    scanner.close()
 }
