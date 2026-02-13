@@ -3,7 +3,7 @@ package oop_133290_VijieAnnisaDzatilIzzah.week02
 class Loan(
     val bookTitle: String,
     val borrower: String,
-    val loanDuration: Int = 1   // Default 1 hari
+    val loanDuration: Int = 1
 ) {
 
     fun calculateFine(): Int {
