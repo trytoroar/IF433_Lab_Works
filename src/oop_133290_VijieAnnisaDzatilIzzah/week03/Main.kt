@@ -18,4 +18,9 @@ fun main () {
 
     println("Damage akhir: ${weapon.damage}")
     println("Tier senjata: ${weapon.tier}")
+
+    val player = Player("Deza")
+
+    player.addXp(50)
+    player.addXp(60)
 }
