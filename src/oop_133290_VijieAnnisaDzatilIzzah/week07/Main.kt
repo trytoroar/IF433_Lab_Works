@@ -51,4 +51,13 @@ fun main() {
     println("Damage: ${starterWeapon.item.damage}")
     println("Rarity: ${starterWeapon.item.rarity}")
     println("Durability: ${starterWeapon.durability}")
+
+    println("\n=== TEST IMMUTABILITY & EVENT ===")
+
+    val upgradedItem = starterWeapon.item.copy(damage = 25)
+
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+    processEvent(BattleState.LootDropped(upgradedItem))
+    processEvent(BattleState.GameOver("Terkena jebakan racun"))
 }
