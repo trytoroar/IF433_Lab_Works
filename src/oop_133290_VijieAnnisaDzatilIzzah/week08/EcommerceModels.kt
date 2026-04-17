@@ -1,7 +1,7 @@
 package oop_133290_VijieAnnisaDzatilIzzah.week08
 
 sealed class Product {
-    data class Electonic(
+    data class Electronic(
         val id: String,
         val name: String,
         val warrantyMonths: Int
