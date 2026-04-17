@@ -2,7 +2,7 @@ package oop_133290_VijieAnnisaDzatilIzzah.week08
 
 fun main() {
     println("=== TEST SAFE CALLS & ELVIS ===")
-    val emptyOrder = Order( null)
+    val emptyOrder = Order( null, null)
 
     val destination = emptyOrder.deliveryDetails?.address?.city?.name ?: "Kota Tidak Diketahui"
     println("Tujuan pengiriman: $destination")
@@ -19,7 +19,14 @@ fun main() {
     val mixedData: List<Any> = listOf(
         "Smartphone",
         150000,
-        UserProfile("Andi", null)
+        UserProfile("Andi", null),
         450000.0
     )
+
+    for (item in mixedData) {
+        val text = item as? String
+        text?.let {
+            println("Ditemukan teks: ${it.uppercase()}")
+        }
+    }
 }
