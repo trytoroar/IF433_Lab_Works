@@ -5,7 +5,6 @@ interface HasName {
 }
 
 class WalletRepository<T : HasName> {
-
     private val items = mutableListOf<T>()
 
     fun add(item: T) {
