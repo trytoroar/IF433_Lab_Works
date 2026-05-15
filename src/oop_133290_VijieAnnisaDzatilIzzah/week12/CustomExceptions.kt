@@ -1,0 +1,3 @@
+package oop_133290_VijieAnnisaDzatilIzzah.week12
+
+class InsufficientFundsException(val amount: Double, val balance: Double) : Exception("Attempted $amount, balance: $balance")
