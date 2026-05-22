@@ -15,7 +15,6 @@ fun main() {
     println("Proses penulisan unsafe selesai.")
 
     println("\n=== TEST SAFE RESOURCE HANDLING ===")
-
     val safeFile = File("safe_logs.txt")
 
     safeFile.printWriter().use { out ->
@@ -26,4 +25,15 @@ fun main() {
     }
 
     println("100 baris log berhasil di-generate dengan sangat aman.")
+
+    println("\n=== TEST BUFFERED READER ===")
+    safeFile.bufferedReader().use { reader ->
+
+        reader.lineSequence()
+            .take(5)
+            .forEach { line ->
+
+                println("Stream Read: $line")
+            }
+    }
 }
